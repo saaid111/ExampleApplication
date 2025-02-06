@@ -12,7 +12,7 @@ workflows:
                 
 jobs:
     build:
-        working_directory: ~/ExampleApplication
+        working_directory: ~/ExampleAppplication
         docker:
             - image: circleci/node:10.16.3
         steps:
@@ -20,12 +20,12 @@ jobs:
             - run:
                 name: update-npm
                 command: 'sudo npm install -g npm@5'
-            - restore-cache:
-                key: dependency-cache-{{ checksum "package-lock.json" }}
-            - run:
+            -restore-cache:
+                key: depenancy-cache-{{ checksum "packaage-lock.json"}}
+            -run:
                 name: install-npm
                 command: npm install
-            - save-cache:
-                key: dependency-cache-{{ checksum "package-lock.json" }}
+            -save-cache:
+                key: depenancy-cache-{{ checksum "packaage-lock.json"}}
                 paths:
-                    - ./node_modules
+                    - ./node_modules           
